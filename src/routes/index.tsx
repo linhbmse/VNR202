@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { StarSeal } from "@/components/StarSeal";
@@ -112,13 +113,6 @@ function Index() {
             >
               Bắt đầu hành trình
             </a>
-            <a
-              href="#liem-chinh"
-              className="px-8 py-4 rounded-sm font-display text-base tracking-wider uppercase border-2 transition-all hover:bg-[oklch(0.95_0.05_88_/_0.1)]"
-              style={{ color: "var(--gold-soft)", borderColor: "var(--gold)" }}
-            >
-              Cam kết liêm chính
-            </a>
           </div>
         </div>
 
@@ -228,6 +222,8 @@ function Index() {
               year="2006"
               side="left"
               title="Đại hội X — Tăng trưởng nhanh & hội nhập"
+              imageSrc="https://resource.kinhtedothi.vn/resources2025/1/users/171/t6-1768443258.jpg"
+              imageAlt="Hình minh họa giai đoạn Đại hội X"
               body={
                 <>
                   Việt Nam bước vào giai đoạn <strong>đẩy mạnh đổi mới toàn diện</strong> và hội
@@ -242,6 +238,8 @@ function Index() {
               year="2008"
               side="right"
               title="Mặt trái lộ diện — Khủng hoảng tài chính toàn cầu"
+              imageSrc="https://statics.tititada.com/News/20240810/nhin-lai-cuoc-khung-hoang-tai-chinh-2007-2008.png"
+              imageAlt="Hình minh họa khủng hoảng tài chính 2008"
               body={
                 <ul className="space-y-2 text-sm md:text-base">
                   <li>
@@ -265,6 +263,8 @@ function Index() {
               year="2011"
               side="left"
               title="Đại hội XI — Điều chỉnh chiến lược"
+              imageSrc="https://cdncongthuong.quangtrung.vn/static_files/lehuy/images/2026/01/16/lan-11-9660.png"
+              imageAlt="Hình minh họa định hướng phát triển bền vững"
               body={
                 <>
                   Cương lĩnh 2011 khẳng định nguyên tắc:{" "}
@@ -281,6 +281,8 @@ function Index() {
               year="XII"
               side="right"
               title="Hài hoà các mối quan hệ lớn"
+              imageSrc="https://lh3.googleusercontent.com/proxy/pUXnegwFSzbNpw88S_QIVruqNLtj7DuhQI0xzS_Rm1CL-WNjhFx6dn1O--TRot4w3BCxZyen8MsTHmwgypOcnDm9xiK4bocNnXUwMM3GiCMSf907tXFIg0GgThgzKd-zrWbj1hU"
+              imageAlt="Hình minh họa các mối quan hệ lớn"
               body={
                 <ul className="space-y-2 text-sm md:text-base">
                   <li>⚖ <strong>Kinh tế</strong> — <strong>xã hội</strong> — <strong>môi trường</strong></li>
@@ -294,6 +296,8 @@ function Index() {
               year="XIII"
               side="left"
               title="Tầm nhìn 2045 — Kinh tế số & Nhân lực chất lượng cao"
+              imageSrc="https://s-aicmscdn.vietnamhoinhap.vn/vnhn-media/23/4/15/amhc.jpg"
+              imageAlt="Hình minh họa tầm nhìn 2045"
               body={
                 <>
                   Đại hội XIII nhấn mạnh phát triển <strong>kinh tế số</strong>, nâng cao chất
@@ -600,7 +604,7 @@ function Index() {
                     className="font-display italic text-3xl text-[var(--crimson)]"
                     style={{ fontFamily: '"Playfair Display", cursive' }}
                   >
-                    Nhóm thuyết trình
+                    Nhóm 2
                   </p>
                 </div>
                 <div className="text-right">
@@ -699,24 +703,22 @@ function TimelineNode({
   title,
   body,
   side,
+  imageSrc,
+  imageAlt,
   accent = false,
 }: {
   year: string;
   title: string;
   body: React.ReactNode;
   side: "left" | "right";
+  imageSrc?: string;
+  imageAlt?: string;
   accent?: boolean;
 }) {
   return (
     <Reveal>
-      <div
-        className={`relative mb-16 md:mb-20 grid md:grid-cols-2 gap-8 items-center ${
-          side === "right" ? "md:[&>*:first-child]:order-2" : ""
-        }`}
-      >
-        <div
-          className={`absolute left-8 md:left-1/2 md:-translate-x-1/2 -translate-y-1/2 top-1/2 z-10`}
-        >
+      <div className="relative mb-16 md:mb-20 grid md:grid-cols-2 gap-8 items-start">
+        <div className="absolute left-8 md:left-1/2 md:-translate-x-1/2 -translate-y-1/2 top-1/2 z-10">
           <div
             className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center font-display font-black text-sm md:text-base shadow-lg"
             style={{
@@ -730,8 +732,14 @@ function TimelineNode({
           </div>
         </div>
 
-        <div className={`pl-28 md:pl-0 ${side === "right" ? "md:pr-16" : "md:pl-16"}`}>
-          <TiltCard className="parchment p-7 md:p-8 rounded-sm">
+        <div
+          className={`pl-28 md:pl-0 ${
+            side === "right"
+              ? "md:col-start-2 md:row-start-1 md:pl-16"
+              : "md:col-start-1 md:row-start-1 md:pr-16"
+          }`}
+        >
+          <TiltCard className="parchment p-7 md:p-8 rounded-sm h-full">
             <h3 className="font-display text-xl md:text-2xl font-bold text-[var(--ink)] mb-3">
               {title}
             </h3>
@@ -739,7 +747,28 @@ function TimelineNode({
           </TiltCard>
         </div>
 
-        <div className="hidden md:block" />
+        <div
+          className={`pl-28 md:pl-0 ${
+            side === "right"
+              ? "md:col-start-1 md:row-start-1 md:pr-16"
+              : "md:col-start-2 md:row-start-1 md:pl-16"
+          }`}
+        >
+          <TiltCard className="parchment rounded-sm overflow-hidden h-full">
+            {imageSrc ? (
+              <img
+                src={imageSrc}
+                alt={imageAlt || `Hình minh họa cho mốc ${year}`}
+                className="w-full h-full object-cover min-h-52"
+                loading="lazy"
+              />
+            ) : (
+              <div className="w-full h-full min-h-52 flex items-center justify-center px-5 text-center border-2 border-dashed border-[var(--border)] text-[var(--muted-foreground)] text-sm italic">
+                Dán link ảnh vào imageSrc của mốc {year}
+              </div>
+            )}
+          </TiltCard>
+        </div>
       </div>
     </Reveal>
   );
