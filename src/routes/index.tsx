@@ -9,7 +9,7 @@ import { TiltCard } from "@/components/TiltCard";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Phát triển nhanh nhưng bền vững — Bài học Lịch sử Đảng" },
+      { title: "Lịch sử Đảng Cộng sản Việt Nam" },
       {
         name: "description",
         content:
