@@ -4,26 +4,20 @@ import { StarSeal } from "@/components/StarSeal";
 import { Reveal } from "@/components/Reveal";
 import { Particles } from "@/components/Particles";
 import { TiltCard } from "@/components/TiltCard";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Phát triển nhanh nhưng bền vững — Bài học Lịch sử Đảng 2006–2015" },
+      { title: "Phát triển nhanh nhưng bền vững — Bài học Lịch sử Đảng" },
       {
         name: "description",
         content:
-          "Dung hoà giữa tăng trưởng và xử lý mặt trái — Bài học từ giai đoạn 2006–2015 của Đảng Cộng sản Việt Nam, vận dụng vào cá nhân và tổ chức.",
+          "Dung hoà giữa tăng trưởng và xử lý mặt trái — Bài học từ Đại hội X đến Đại hội XIII của Đảng Cộng sản Việt Nam, vận dụng vào cá nhân và tổ chức.",
       },
       { property: "og:title", content: "Phát triển nhanh nhưng bền vững" },
       {
         property: "og:description",
-        content: "Bài học Lịch sử Đảng giai đoạn 2006–2015 và vận dụng thực tiễn.",
+        content: "Bài học Lịch sử Đảng và vận dụng thực tiễn cho cá nhân, tổ chức.",
       },
     ],
     links: [
@@ -56,7 +50,6 @@ function Index() {
       >
         <Particles count={25} />
 
-        {/* Parallax giant star */}
         <div
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
           style={{
@@ -66,7 +59,6 @@ function Index() {
           <StarSeal size={520} className="star-pulse opacity-25" />
         </div>
 
-        {/* Gold radial glow */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -85,7 +77,7 @@ function Index() {
           </div>
 
           <p className="text-[var(--gold-soft)] tracking-[0.4em] text-xs sm:text-sm mb-6 uppercase">
-            Lịch sử Đảng Cộng sản Việt Nam · 2006 — 2015
+            Lịch sử Đảng Cộng sản Việt Nam · Đại hội X — XIII
           </p>
 
           <h1
@@ -121,16 +113,15 @@ function Index() {
               Bắt đầu hành trình
             </a>
             <a
-              href="#hoi-dap"
+              href="#liem-chinh"
               className="px-8 py-4 rounded-sm font-display text-base tracking-wider uppercase border-2 transition-all hover:bg-[oklch(0.95_0.05_88_/_0.1)]"
               style={{ color: "var(--gold-soft)", borderColor: "var(--gold)" }}
             >
-              Đặt câu hỏi
+              Cam kết liêm chính
             </a>
           </div>
         </div>
 
-        {/* Scroll cue */}
         <div
           className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[var(--gold-soft)] text-xs tracking-[0.3em] uppercase"
           style={{ opacity: Math.max(0, 1 - scrollY / 300) }}
@@ -145,23 +136,21 @@ function Index() {
           <Reveal>
             <TiltCard className="parchment p-8 md:p-10 h-full rounded-sm">
               <div className="text-[var(--crimson)] text-xs tracking-[0.3em] uppercase mb-3">
-                01 · Bối cảnh
+                01 · Thực trạng
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mb-4 text-[var(--ink)]">
                 Thời đại của "Tốc độ" và "Thành tích"
               </h3>
-              <p className="text-[var(--muted-foreground)] leading-relaxed text-base">
-                Chúng ta đang sống trong một thời đại mà{" "}
-                <em className="text-[var(--crimson)] not-italic font-semibold">"nhanh"</em> và{" "}
-                <em className="text-[var(--crimson)] not-italic font-semibold">"thành tích"</em>{" "}
-                được đặt lên hàng đầu — từ học tập, thăng tiến trong công việc, cho đến mở rộng
-                quy mô của một tổ chức, doanh nghiệp.
+              <p className="text-[var(--muted-foreground)] leading-relaxed text-base mb-4">
+                Trong học tập, công việc và phát triển cá nhân hiện nay, con người thường có xu
+                hướng ưu tiên <em className="text-[var(--crimson)] not-italic font-semibold">tốc độ</em>{" "}
+                và <em className="text-[var(--crimson)] not-italic font-semibold">thành tích</em>{" "}
+                nhằm đạt kết quả nhanh nhất.
               </p>
-              <div className="mt-6 pt-6 border-t border-[var(--border)]">
-                <p className="text-sm text-[var(--muted-foreground)] italic">
-                  Hệ quả: sức khoẻ suy giảm, chất lượng công việc hời hợt, hoặc sự sụp đổ khi nền
-                  tảng chưa vững chắc.
-                </p>
+              <div className="mt-6 pt-6 border-t border-[var(--border)] space-y-2 text-sm text-[var(--muted-foreground)]">
+                <p>⚠ Mất cân bằng giữa <strong>chất lượng</strong> và <strong>số lượng</strong>.</p>
+                <p>⚠ Gia tăng <strong>áp lực</strong> và <strong>rủi ro</strong>.</p>
+                <p>⚠ Vấn đề về <strong>đạo đức, môi trường</strong> và tính bền vững.</p>
               </div>
             </TiltCard>
           </Reveal>
@@ -169,7 +158,7 @@ function Index() {
           <Reveal delay={150}>
             <TiltCard className="p-8 md:p-10 h-full rounded-sm" style={{ background: "var(--gradient-flag)" }}>
               <div className="text-[var(--gold-soft)] text-xs tracking-[0.3em] uppercase mb-3">
-                02 · Câu hỏi trăn trở
+                02 · Câu hỏi chiến lược
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: "oklch(0.96 0.05 88)" }}>
                 Hai câu hỏi cốt lõi
@@ -178,14 +167,14 @@ function Index() {
                 <li className="flex gap-4">
                   <StarSeal size={28} className="shrink-0 mt-1" />
                   <span>
-                    Làm thế nào để vừa <strong>tăng tốc</strong> phát triển mà không đánh đổi giá
-                    trị nền tảng cốt lõi?
+                    Làm thế nào vừa <strong>phát triển nhanh</strong> mà không đánh đổi yếu tố nền
+                    tảng cốt lõi?
                   </span>
                 </li>
                 <li className="flex gap-4">
                   <StarSeal size={28} className="shrink-0 mt-1" />
                   <span>
-                    Đâu là ranh giới giữa <strong>"tăng trưởng cần thiết"</strong> và{" "}
+                    Đâu là giới hạn giữa <strong>"tăng trưởng cần thiết"</strong> và{" "}
                     <strong>"hệ quả độc hại"</strong> cần kiểm soát?
                   </span>
                 </li>
@@ -195,18 +184,17 @@ function Index() {
         </div>
 
         <Reveal delay={300}>
-          <div className="mt-16 text-center max-w-2xl mx-auto">
+          <div className="mt-16 text-center max-w-3xl mx-auto">
             <div className="divider-ornament mb-6">✦</div>
             <p className="font-display italic text-xl md:text-2xl text-[var(--crimson)]">
-              "Hãy cùng nhìn lại một bài học lịch sử đắt giá của đất nước
-              <br />
-              trong giai đoạn 2006 – 2015."
+              "Thực tiễn phát triển của Việt Nam — đặc biệt từ Đại hội X đến Đại hội XIII — đã cung
+              cấp những bài học sâu sắc về mối quan hệ giữa tăng trưởng nhanh và phát triển bền vững."
             </p>
           </div>
         </Reveal>
       </Section>
 
-      {/* ============ PHẦN 2: BÀI HỌC LỊCH SỬ ============ */}
+      {/* ============ PHẦN 2: CƠ SỞ LÝ THUYẾT ============ */}
       <section
         className="relative py-24 md:py-32 perspective-scene"
         style={{
@@ -221,15 +209,13 @@ function Index() {
                 Phần II · Cơ sở lý thuyết
               </div>
               <h2 className="font-display text-4xl md:text-6xl font-bold text-[var(--ink)] mb-4">
-                Bài học lịch sử <span className="text-[var(--crimson)]">2006 — 2015</span>
+                Bài học lịch sử <span className="text-[var(--crimson)]">Đại hội X — XIII</span>
               </h2>
               <div className="divider-ornament mt-6">★</div>
             </div>
           </Reveal>
 
-          {/* Timeline 3D */}
           <div className="relative preserve-3d">
-            {/* vertical line */}
             <div
               className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px md:-translate-x-1/2"
               style={{
@@ -241,16 +227,13 @@ function Index() {
             <TimelineNode
               year="2006"
               side="left"
-              title="Khát vọng tăng trưởng — Đại hội X"
+              title="Đại hội X — Tăng trưởng nhanh & hội nhập"
               body={
                 <>
-                  Đảng đề ra mục tiêu{" "}
-                  <em className="text-[var(--crimson)] not-italic font-semibold">
-                    "đẩy mạnh toàn diện công cuộc đổi mới, sớm đưa nước ta ra khỏi tình trạng kém
-                    phát triển"
-                  </em>
-                  . Việt Nam gia nhập <strong>WTO</strong>, mở ra cơ hội thu hút FDI khổng lồ và
-                  tăng trưởng nhanh chóng.
+                  Việt Nam bước vào giai đoạn <strong>đẩy mạnh đổi mới toàn diện</strong> và hội
+                  nhập quốc tế sâu rộng. Năm 2007, gia nhập <strong>WTO</strong> — bước ngoặt mở
+                  rộng quan hệ quốc tế và nâng cao vị thế toàn cầu. Nền kinh tế đạt mức tăng trưởng
+                  cao và liên tục.
                 </>
               }
             />
@@ -258,14 +241,22 @@ function Index() {
             <TimelineNode
               year="2008"
               side="right"
-              title="Mặt trái lộ diện"
+              title="Mặt trái lộ diện — Khủng hoảng tài chính toàn cầu"
               body={
-                <>
-                  Khủng hoảng tài chính toàn cầu cộng hưởng với yếu kém nội tại: lạm phát tăng
-                  cao, kinh tế vĩ mô bất ổn. Tăng trưởng chủ yếu theo{" "}
-                  <strong>chiều rộng</strong> — khai thác tài nguyên, lao động giá rẻ — mà thiếu{" "}
-                  <strong>chiều sâu</strong> về chất lượng và năng lực cạnh tranh.
-                </>
+                <ul className="space-y-2 text-sm md:text-base">
+                  <li>
+                    <strong className="text-[var(--crimson)]">Kinh tế:</strong> tăng trưởng theo
+                    chiều rộng, năng suất thấp, phụ thuộc vốn và tài nguyên.
+                  </li>
+                  <li>
+                    <strong className="text-[var(--crimson)]">Xã hội:</strong> khoảng cách giàu
+                    nghèo gia tăng, áp lực việc làm và an sinh.
+                  </li>
+                  <li>
+                    <strong className="text-[var(--crimson)]">Môi trường & quản lý:</strong> ô
+                    nhiễm, khai thác quá mức; tham nhũng, lãng phí.
+                  </li>
+                </ul>
               }
               accent
             />
@@ -273,39 +264,44 @@ function Index() {
             <TimelineNode
               year="2011"
               side="left"
-              title="Điều chỉnh — Đại hội XI"
+              title="Đại hội XI — Điều chỉnh chiến lược"
               body={
                 <>
                   Cương lĩnh 2011 khẳng định nguyên tắc:{" "}
                   <em className="text-[var(--crimson)] not-italic font-semibold">
                     "Phát triển nhanh gắn liền với phát triển bền vững"
                   </em>
-                  . Quyết định <strong>"đổi mới mô hình tăng trưởng, cơ cấu lại nền kinh tế"</strong>{" "}
-                  — chuyển từ số lượng sang chất lượng, năng suất, hiệu quả.
+                  . Đổi mới mô hình tăng trưởng — chuyển từ <strong>chiều rộng</strong> sang{" "}
+                  <strong>chiều sâu</strong>, dựa trên khoa học – công nghệ và đổi mới sáng tạo.
                 </>
               }
             />
 
             <TimelineNode
-              year="2011+"
+              year="XII"
               side="right"
-              title="Ba đột phá chiến lược"
+              title="Hài hoà các mối quan hệ lớn"
               body={
                 <ul className="space-y-2 text-sm md:text-base">
-                  <li>
-                    <strong className="text-[var(--crimson)]">① Thể chế</strong> — hoàn thiện hệ
-                    thống pháp luật, kinh tế thị trường định hướng XHCN.
-                  </li>
-                  <li>
-                    <strong className="text-[var(--crimson)]">② Nguồn nhân lực</strong> — gắn với
-                    khoa học, công nghệ.
-                  </li>
-                  <li>
-                    <strong className="text-[var(--crimson)]">③ Hạ tầng</strong> — đồng bộ, hiện
-                    đại, kết nối.
-                  </li>
+                  <li>⚖ <strong>Kinh tế</strong> — <strong>xã hội</strong> — <strong>môi trường</strong></li>
+                  <li>⚖ <strong>Tăng trưởng</strong> — <strong>công bằng</strong></li>
+                  <li>⚖ <strong>Độc lập</strong> — <strong>hội nhập</strong></li>
                 </ul>
               }
+            />
+
+            <TimelineNode
+              year="XIII"
+              side="left"
+              title="Tầm nhìn 2045 — Kinh tế số & Nhân lực chất lượng cao"
+              body={
+                <>
+                  Đại hội XIII nhấn mạnh phát triển <strong>kinh tế số</strong>, nâng cao chất
+                  lượng <strong>nguồn nhân lực</strong> để tạo đà phát triển bền vững đến năm
+                  2045 — khát vọng đưa Việt Nam trở thành nước phát triển, thu nhập cao.
+                </>
+              }
+              accent
             />
           </div>
         </div>
@@ -316,30 +312,30 @@ function Index() {
         id="van-dung"
         label="Phần III"
         title="Vận dụng vào thực tiễn"
-        subtitle="Từ vĩ mô đến vi mô — cá nhân & tổ chức"
+        subtitle="Từ vĩ mô quốc gia đến vi mô cá nhân & tổ chức"
       >
         <div className="grid md:grid-cols-3 gap-6">
           {[
             {
               icon: "📚",
               title: "Trong học tập",
-              fast: "Chạy đua thành tích, học vẹt để qua môn.",
-              slow: "Hiểu sâu bản chất, tích luỹ kỹ năng thực tế.",
-              warn: "Lạm phát điểm số — ra trường dễ bị đào thải.",
+              fast: "Chạy theo điểm số, học 'tủ', học vẹt để thi qua môn.",
+              slow: "Hiểu bản chất, tích luỹ kiến thức nền tảng vững.",
+              warn: "Lỗ hổng kiến thức — ra trường dễ bị đào thải.",
             },
             {
               icon: "💼",
               title: "Trong công việc",
-              fast: "Hustle culture, ôm nhiều dự án để mau thăng tiến.",
-              slow: "Ưu tiên chiều sâu chuyên môn và sức khoẻ.",
-              warn: "Burnout, sai sót, đánh đổi gia đình.",
+              fast: "Cày KPI, ôm nhiều dự án cùng lúc để mau thăng tiến.",
+              slow: "Ưu tiên chiều sâu chuyên môn, cân bằng cuộc sống.",
+              warn: "Bỏ qua chất lượng — sai sót và kiệt sức (burnout).",
             },
             {
               icon: "🚀",
               title: "Trong tổ chức",
-              fast: "Đốt tiền chạy quảng cáo để tăng user nhanh nhất.",
-              slow: "Hoàn thiện sản phẩm cốt lõi trước khi mở rộng.",
-              warn: "Khách hàng rời bỏ, dòng tiền gãy đổ.",
+              fast: "Mở rộng nhanh, 'đốt tiền' chạy quảng cáo, bỏ qua quy trình.",
+              slow: "Hoàn thiện sản phẩm và văn hoá cốt lõi trước khi mở rộng.",
+              warn: "Khủng hoảng nội bộ, mất uy tín với khách hàng.",
             },
           ].map((c, i) => (
             <Reveal key={c.title} delay={i * 120}>
@@ -373,24 +369,20 @@ function Index() {
             </div>
             <div className="relative z-10 max-w-3xl">
               <div className="text-[var(--gold-soft)] text-xs tracking-[0.3em] uppercase mb-3">
-                Nhận diện · Xử lý
+                Cảnh báo sớm
               </div>
               <h3
                 className="font-display text-3xl md:text-4xl font-bold mb-6"
                 style={{ color: "oklch(0.96 0.05 88)" }}
               >
-                "Chỉ số cảnh báo" của con người
+                Khi nào cần chậm lại để điều chỉnh?
               </h3>
               <p className="text-[oklch(0.92_0.04_85)] leading-relaxed text-lg">
-                Giống như nền kinh tế bộc lộ lạm phát và bất ổn, con người cũng có những dấu hiệu:{" "}
-                <strong>mệt mỏi kéo dài</strong>, <strong>mất cảm hứng</strong>,{" "}
-                <strong>làm việc đối phó</strong>.
-              </p>
-              <p className="text-[oklch(0.92_0.04_85)] leading-relaxed text-lg mt-4">
-                Đừng sợ phải chậm lại. Khi xuất hiện hệ quả, hãy mạnh dạn{" "}
-                <em className="shimmer-text font-semibold not-italic">"cơ cấu lại"</em> thói quen,
-                loại bỏ việc không tạo giá trị lõi, tập trung vào{" "}
-                <strong className="shimmer-text">phát triển theo chiều sâu</strong>.
+                Khi sự phát triển đi kèm với <strong>chất lượng giảm sút</strong>,{" "}
+                <strong>áp lực tăng cao</strong> và <strong>sai sót xuất hiện nhiều</strong> — đó
+                chính là lúc cần <em className="shimmer-text not-italic font-semibold">"cơ cấu lại"</em>{" "}
+                thói quen, loại bỏ việc không tạo giá trị lõi và tập trung phát triển{" "}
+                <strong className="shimmer-text">theo chiều sâu</strong>.
               </p>
             </div>
           </div>
@@ -409,9 +401,8 @@ function Index() {
             className="text-center font-display italic text-2xl md:text-3xl mb-16 max-w-3xl mx-auto"
             style={{ color: "oklch(0.92 0.06 85)" }}
           >
-            "Sự phát triển lý tưởng không phải là{" "}
-            <span className="shimmer-text">đi nhanh nhất</span>, mà là{" "}
-            <span className="shimmer-text">đi xa nhất</span>."
+            Tốc độ <span className="shimmer-text">+</span> Chất lượng{" "}
+            <span className="shimmer-text">+</span> Bền vững
           </p>
         </Reveal>
 
@@ -419,18 +410,18 @@ function Index() {
           {[
             {
               num: "I",
-              title: "Đột phá Thể chế",
-              desc: "Xây dựng nguyên tắc sống và làm việc kỷ luật cho bản thân — quy tắc rõ ràng, nhất quán.",
+              title: "Xây nền tảng vững chắc",
+              desc: "Liên tục đầu tư vào kiến thức, kỹ năng mềm và tư duy — thay vì chỉ chạy theo bề nổi.",
             },
             {
               num: "II",
-              title: "Đột phá Hạ tầng",
-              desc: "Đầu tư vào sức khoẻ thể chất, công cụ làm việc, và môi trường sống lành mạnh.",
+              title: "Quản lý nhịp độ",
+              desc: "Biết khi nào nên tăng tốc, khi nào cần dừng lại để ổn định và củng cố lực lượng.",
             },
             {
               num: "III",
-              title: "Đột phá Nhân lực",
-              desc: "Liên tục tự học, nâng cấp tư duy và kỹ năng mềm — không cày cuốc như một cái máy.",
+              title: "Tự đánh giá thường xuyên",
+              desc: "Liên tục rà soát bản thân để nhận diện và sửa chữa những sai lệch từ sớm.",
             },
           ].map((b, i) => (
             <Reveal key={b.num} delay={i * 150}>
@@ -469,48 +460,17 @@ function Index() {
               className="font-display text-2xl md:text-3xl leading-snug"
               style={{ color: "oklch(0.96 0.05 88)" }}
             >
-              <span className="shimmer-text">Phát triển nhanh</span> là khát vọng chính đáng,
+              Phát triển hiệu quả không phải là{" "}
+              <span className="shimmer-text">đi nhanh nhất</span>,
               <br />
-              nhưng <span className="shimmer-text">phát triển bền vững</span> mới là điều kiện
-              sinh tồn.
+              mà là <span className="shimmer-text">đi bền vững nhất</span>.
             </p>
-          </div>
-        </Reveal>
-      </Section>
-
-      {/* ============ HỎI ĐÁP (FAQ) ============ */}
-      <Section
-        id="hoi-dap"
-        label="Tương tác"
-        title="Hỏi & Đáp"
-        subtitle="Những câu hỏi thường gặp về chủ đề"
-      >
-        <Reveal>
-          <div className="max-w-3xl mx-auto parchment p-6 md:p-10 rounded-sm">
-            <Accordion type="single" collapsible className="w-full">
-              {FAQS.map((f, i) => (
-                <AccordionItem key={i} value={`item-${i}`} className="border-[var(--border)]">
-                  <AccordionTrigger className="text-left font-display text-base md:text-lg text-[var(--ink)] hover:text-[var(--crimson)]">
-                    <span className="flex gap-3 items-start">
-                      <span className="text-[var(--crimson)] font-black shrink-0">
-                        {String(i + 1).padStart(2, "0")}.
-                      </span>
-                      <span>{f.q}</span>
-                    </span>
-                  </AccordionTrigger>
-                  <AccordionContent className="text-[var(--muted-foreground)] leading-relaxed text-base pl-9">
-                    {f.a}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </Reveal>
-
-        <Reveal delay={200}>
-          <div className="mt-10 max-w-3xl mx-auto text-center">
-            <p className="text-sm text-[var(--muted-foreground)] italic">
-              Còn câu hỏi khác? Hãy ghi chú lại và trao đổi trực tiếp trong buổi thuyết trình.
+            <p
+              className="mt-6 italic text-base md:text-lg"
+              style={{ color: "oklch(0.85 0.04 80)" }}
+            >
+              Thành công lâu dài luôn phụ thuộc vào nền tảng vững chắc và khả năng thích ứng linh
+              hoạt.
             </p>
           </div>
         </Reveal>
@@ -518,11 +478,12 @@ function Index() {
 
       {/* ============ CAM KẾT LIÊM CHÍNH HỌC THUẬT ============ */}
       <section
+        id="liem-chinh"
         className="relative py-24 md:py-32 perspective-scene overflow-hidden"
         style={{ background: "var(--gradient-flag)" }}
       >
         <Particles count={15} />
-        <div className="max-w-4xl mx-auto px-6 relative z-10">
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
           <Reveal>
             <div className="text-center mb-12">
               <div className="flex justify-center mb-6">
@@ -532,7 +493,7 @@ function Index() {
                 className="text-xs tracking-[0.4em] uppercase mb-4"
                 style={{ color: "var(--gold-soft)" }}
               >
-                Cam kết
+                Phụ lục · Cam kết
               </div>
               <h2
                 className="font-display text-4xl md:text-6xl font-bold mb-4"
@@ -540,20 +501,84 @@ function Index() {
               >
                 Liêm chính <span className="shimmer-text italic">Học thuật</span>
               </h2>
-              <div className="divider-ornament">✦</div>
+              <p
+                className="italic max-w-2xl mx-auto mt-4"
+                style={{ color: "oklch(0.88 0.04 85)" }}
+              >
+                Cam kết về việc sử dụng AI có trách nhiệm trong bài thuyết trình này.
+              </p>
+              <div className="divider-ornament mt-6">✦</div>
             </div>
           </Reveal>
 
-          <Reveal delay={200}>
-            <TiltCard className="parchment p-8 md:p-12 rounded-sm vintage-frame">
-              <p className="font-display text-lg md:text-xl text-[var(--ink)] mb-6 leading-relaxed">
-                Chúng tôi — nhóm thực hiện bài thuyết trình này — long trọng cam kết:
-              </p>
-              <ul className="space-y-5 text-[var(--ink)]">
-                {COMMITMENTS.map((c, i) => (
-                  <li key={i} className="flex gap-4 items-start">
+          <div className="grid md:grid-cols-2 gap-6">
+            {INTEGRITY_PRINCIPLES.map((p, i) => (
+              <Reveal key={p.code} delay={i * 120}>
+                <TiltCard className="parchment p-7 md:p-8 h-full rounded-sm vintage-frame">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div
+                      className="shrink-0 w-14 h-14 rounded-sm flex items-center justify-center font-display font-black text-lg"
+                      style={{
+                        background: "var(--gradient-gold)",
+                        color: "var(--ink)",
+                        boxShadow: "var(--shadow-gold)",
+                      }}
+                    >
+                      {p.code}
+                    </div>
+                    <div>
+                      <div className="text-[var(--crimson)] text-xs tracking-[0.3em] uppercase mb-1">
+                        Nguyên tắc
+                      </div>
+                      <h3 className="font-display text-2xl font-bold text-[var(--ink)]">
+                        {p.title}
+                      </h3>
+                    </div>
+                  </div>
+                  <div className="text-[var(--muted-foreground)] leading-relaxed text-base">
+                    {p.body}
+                  </div>
+                </TiltCard>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* 4.4 — Three signals card (full width, highlighted) */}
+          <Reveal delay={500}>
+            <TiltCard className="mt-8 parchment p-8 md:p-12 rounded-sm vintage-frame">
+              <div className="flex flex-col md:flex-row md:items-start gap-6 mb-6">
+                <div
+                  className="shrink-0 w-16 h-16 rounded-sm flex items-center justify-center font-display font-black text-xl"
+                  style={{
+                    background: "var(--gradient-flag)",
+                    color: "oklch(0.96 0.05 88)",
+                    boxShadow: "var(--shadow-gold)",
+                  }}
+                >
+                  4.4
+                </div>
+                <div>
+                  <div className="text-[var(--crimson)] text-xs tracking-[0.3em] uppercase mb-1">
+                    Cốt lõi
+                  </div>
+                  <h3 className="font-display text-2xl md:text-3xl font-bold text-[var(--ink)] mb-2">
+                    Liêm chính học thuật
+                  </h3>
+                  <p className="text-[var(--muted-foreground)] italic">
+                    Đánh giá cụ thể qua 3 dấu hiệu sau:
+                  </p>
+                </div>
+              </div>
+
+              <ul className="space-y-4">
+                {INTEGRITY_SIGNALS.map((s, i) => (
+                  <li
+                    key={i}
+                    className="flex gap-4 items-start p-4 rounded-sm"
+                    style={{ background: "oklch(0.96 0.02 82 / 0.6)" }}
+                  >
                     <span
-                      className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-display font-bold text-sm"
+                      className="shrink-0 w-9 h-9 rounded-full flex items-center justify-center font-display font-bold text-sm"
                       style={{
                         background: "var(--gradient-gold)",
                         color: "var(--ink)",
@@ -561,7 +586,7 @@ function Index() {
                     >
                       {i + 1}
                     </span>
-                    <span className="leading-relaxed pt-1">{c}</span>
+                    <span className="leading-relaxed pt-1 text-[var(--ink)]">{s}</span>
                   </li>
                 ))}
               </ul>
@@ -689,7 +714,6 @@ function TimelineNode({
           side === "right" ? "md:[&>*:first-child]:order-2" : ""
         }`}
       >
-        {/* Year medallion */}
         <div
           className={`absolute left-8 md:left-1/2 md:-translate-x-1/2 -translate-y-1/2 top-1/2 z-10`}
         >
@@ -706,7 +730,6 @@ function TimelineNode({
           </div>
         </div>
 
-        {/* Card */}
         <div className={`pl-28 md:pl-0 ${side === "right" ? "md:pr-16" : "md:pl-16"}`}>
           <TiltCard className="parchment p-7 md:p-8 rounded-sm">
             <h3 className="font-display text-xl md:text-2xl font-bold text-[var(--ink)] mb-3">
@@ -716,7 +739,6 @@ function TimelineNode({
           </TiltCard>
         </div>
 
-        {/* Spacer */}
         <div className="hidden md:block" />
       </div>
     </Reveal>
@@ -737,37 +759,53 @@ function Row({ label, color, text }: { label: string; color: string; text: strin
   );
 }
 
-const FAQS = [
+const INTEGRITY_PRINCIPLES: { code: string; title: string; body: React.ReactNode }[] = [
   {
-    q: "Vì sao Đại hội X (2006) lại đặt mục tiêu tăng trưởng nhanh?",
-    a: "Sau 20 năm Đổi mới, Việt Nam vẫn nằm trong nhóm nước kém phát triển. Đại hội X xác định cần đẩy mạnh toàn diện công cuộc đổi mới, sớm đưa nước ta ra khỏi tình trạng kém phát triển. Việc gia nhập WTO cùng năm 2006 mở ra cơ hội thu hút FDI và hội nhập sâu rộng để đạt mục tiêu này.",
+    code: "4.1",
+    title: "Minh bạch",
+    body: (
+      <>
+        Có slide / phụ lục <strong>"AI Usage"</strong> liệt kê công cụ, mục đích, prompt chính,
+        kết quả nhận được và phần nhóm đã chỉnh sửa. <strong>Chia sẻ link đoạn chat</strong> đã sử
+        dụng để giảng viên có thể đối chiếu.
+      </>
+    ),
   },
   {
-    q: "Những 'mặt trái' lớn nhất của giai đoạn tăng trưởng nóng 2006–2010 là gì?",
-    a: "Lạm phát tăng cao, kinh tế vĩ mô bất ổn (đặc biệt sau khủng hoảng tài chính 2008), tăng trưởng dựa vào chiều rộng — tài nguyên, lao động giá rẻ, vốn đầu tư — thiếu chiều sâu về chất lượng và năng lực cạnh tranh. Đồng thời nảy sinh vấn đề xã hội, môi trường và suy thoái đạo đức.",
+    code: "4.2",
+    title: "Có trách nhiệm",
+    body: (
+      <>
+        <strong>Kiểm chứng</strong> mọi thông tin do AI sinh ra bằng giáo trình LLCT, nghị quyết
+        và các văn bản chính thống. Nhóm <strong>chịu trách nhiệm</strong> hoàn toàn về nội dung
+        cuối cùng được trình bày.
+      </>
+    ),
   },
   {
-    q: "Đại hội XI (2011) đã điều chỉnh mô hình phát triển như thế nào?",
-    a: "Cương lĩnh 2011 khẳng định nguyên tắc 'Phát triển nhanh gắn liền với phát triển bền vững'. Đảng quyết định đổi mới mô hình tăng trưởng, cơ cấu lại nền kinh tế — chuyển từ tăng trưởng số lượng sang chất lượng, năng suất, hiệu quả; đồng thời thực hiện 3 đột phá chiến lược về thể chế, nguồn nhân lực và hạ tầng.",
+    code: "4.3",
+    title: "Sáng tạo",
+    body: (
+      <>
+        AI chỉ đóng vai trò <strong>hỗ trợ</strong> (tạo sơ đồ, quiz, video, chatbot…),{" "}
+        <strong>không thay thế toàn bộ</strong> quá trình tư duy, biên soạn và sáng tạo của nhóm.
+      </>
+    ),
   },
   {
-    q: "Bài học này có thể áp dụng cho cá nhân sinh viên ra sao?",
-    a: "Tránh học vẹt, chạy điểm — thay vào đó hiểu bản chất, tích luỹ kỹ năng. Khi cảm thấy mệt mỏi kéo dài, mất cảm hứng, hãy 'cơ cấu lại' lịch học và sinh hoạt. Áp dụng 3 đột phá cá nhân: kỷ luật bản thân (thể chế), sức khoẻ và công cụ (hạ tầng), tự học liên tục (nhân lực).",
-  },
-  {
-    q: "'Đi xa nhất' khác với 'đi nhanh nhất' ở điểm nào?",
-    a: "Đi nhanh tập trung vào tốc độ ngắn hạn, dễ đánh đổi nền tảng. Đi xa đặt mục tiêu trên nền móng dài hạn — đạo đức, sức khoẻ, năng lực cốt lõi. Người đi xa biết khi nào cần dừng, điều chỉnh và xây lại nền tảng để hành trình tiếp tục bền vững.",
-  },
-  {
-    q: "Vì sao 'liêm chính học thuật' liên quan đến chủ đề tăng trưởng bền vững?",
-    a: "Liêm chính học thuật chính là 'phát triển theo chiều sâu' trong học tập — từ chối thành tích ảo (đạo văn, gian lận) để xây dựng năng lực thật. Đó là phiên bản cá nhân của bài học mà Đảng đã rút ra: muốn bền vững, phải dũng cảm chọn chất lượng thay vì số lượng.",
+    code: "★",
+    title: "Tinh thần chung",
+    body: (
+      <>
+        Sử dụng AI như một <em>công cụ học tập</em> — để khai mở tư duy, không phải để né tránh nỗ
+        lực. Mỗi sản phẩm cuối cùng đều phải mang dấu ấn lao động trí tuệ thực sự của sinh viên.
+      </>
+    ),
   },
 ];
 
-const COMMITMENTS = [
-  "Toàn bộ nội dung trình bày được xây dựng dựa trên giáo trình Lịch sử Đảng Cộng sản Việt Nam và các văn kiện chính thức của Đại hội X (2006), Đại hội XI (2011).",
-  "Mọi trích dẫn, số liệu, nguyên văn nghị quyết đều được dẫn nguồn rõ ràng, không cắt xén làm sai lệch ý nghĩa gốc.",
-  "Không sao chép nguyên văn tài liệu của người khác mà không ghi nguồn; các phần phân tích, liên hệ thực tiễn là quan điểm và lập luận của chính nhóm.",
-  "Không sử dụng AI để tạo nội dung học thuật rồi nộp như sản phẩm hoàn toàn của mình; AI (nếu có) chỉ đóng vai trò hỗ trợ trình bày, đã được kiểm chứng và biên tập lại.",
-  "Sẵn sàng chịu trách nhiệm trước giảng viên và tập thể lớp về tính trung thực của bài thuyết trình này.",
+const INTEGRITY_SIGNALS = [
+  "Có cam kết bằng văn bản (slide / phụ lục) khẳng định không để AI làm thay hoàn toàn.",
+  "Có phân định rõ phần AI output và phần sinh viên chỉnh sửa / biên soạn.",
+  "Có đối chiếu nguồn chính thống cho mọi thông tin do AI sinh ra.",
 ];
