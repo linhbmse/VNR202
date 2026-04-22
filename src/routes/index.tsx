@@ -31,9 +31,22 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const NAV_TABS = [
+  { id: "dau-trang", label: "Tổng quan" },
+  { id: "mo-dau", label: "Đặt vấn đề" },
+  { id: "co-so-ly-thuyet", label: "Cơ sở lí thuyết" },
+  { id: "van-dung", label: "Cơ sở vận dụng" },
+  { id: "giai-phap", label: "Giải pháp/Bài học" },
+  { id: "liem-chinh", label: "Phụ lục AI" },
+];
+
+const HEADER_SCROLL_OFFSET = 0;
+const ACTIVE_TAB_SCROLL_OFFSET = 180;
+
 function Index() {
   const heroRef = useRef<HTMLDivElement>(null);
   const [scrollY, setScrollY] = useState(0);
+  const [activeTab, setActiveTab] = useState("dau-trang");
 
   useEffect(() => {
     const onScroll = () => setScrollY(window.scrollY);
@@ -41,13 +54,77 @@ function Index() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const updateActiveTab = () => {
+      const current = [...NAV_TABS]
+        .map((tab) => {
+          const section = document.getElementById(tab.id);
+          if (!section) return null;
+
+          const top = section.getBoundingClientRect().top + window.scrollY;
+          return { id: tab.id, top };
+        })
+        .filter((section): section is { id: string; top: number } => section !== null)
+        .filter((section) => window.scrollY + ACTIVE_TAB_SCROLL_OFFSET >= section.top)
+        .pop();
+
+      if (current?.id) {
+        setActiveTab(current.id);
+      }
+    };
+
+    updateActiveTab();
+    window.addEventListener("scroll", updateActiveTab, { passive: true });
+    window.addEventListener("resize", updateActiveTab);
+    return () => {
+      window.removeEventListener("scroll", updateActiveTab);
+      window.removeEventListener("resize", updateActiveTab);
+    };
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (!section) return;
+    setActiveTab(id);
+    const top = section.getBoundingClientRect().top + window.scrollY - HEADER_SCROLL_OFFSET;
+    window.scrollTo({ top, behavior: "smooth" });
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <main className="min-h-screen overflow-x-hidden">
+    <main className="min-h-screen overflow-x-hidden pt-20 md:pt-24">
+      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b" style={{ background: "oklch(0.15 0.04 28 / 0.72)", borderColor: "oklch(0.95 0.06 88 / 0.22)" }}>
+        <nav className="max-w-6xl mx-auto w-full px-4 md:px-6 py-3 flex justify-center gap-2 md:gap-3 overflow-x-auto">
+          {NAV_TABS.map((tab) => {
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => scrollToSection(tab.id)}
+                className="px-4 py-2 rounded-sm text-xs md:text-sm font-semibold tracking-[0.12em] uppercase whitespace-nowrap transition-all duration-300"
+                style={{
+                  background: isActive ? "var(--gradient-gold)" : "oklch(0.2 0.04 28 / 0.35)",
+                  color: isActive ? "var(--ink)" : "oklch(0.92 0.04 85)",
+                  boxShadow: isActive ? "var(--shadow-gold)" : "none",
+                }}
+              >
+                {tab.label}
+              </button>
+            );
+          })}
+        </nav>
+      </header>
+
       {/* ============ HERO ============ */}
       <section
+        id="dau-trang"
         ref={heroRef}
         className="relative min-h-screen flex items-center justify-center perspective-scene"
-        style={{ background: "var(--gradient-flag)" }}
+        style={{ background: "var(--gradient-flag)", scrollMarginTop: `${HEADER_SCROLL_OFFSET + 8}px` }}
       >
         <Particles count={25} />
 
@@ -104,6 +181,10 @@ function Index() {
           <div className="mt-14 flex justify-center gap-4 flex-wrap">
             <a
               href="#mo-dau"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("mo-dau");
+              }}
               className="px-8 py-4 rounded-sm font-display text-base tracking-wider uppercase transition-all duration-500 hover:translate-y-[-3px]"
               style={{
                 background: "var(--gradient-gold)",
@@ -190,8 +271,10 @@ function Index() {
 
       {/* ============ PHẦN 2: CƠ SỞ LÝ THUYẾT ============ */}
       <section
+        id="co-so-ly-thuyet"
         className="relative py-24 md:py-32 perspective-scene"
         style={{
+          scrollMarginTop: `${HEADER_SCROLL_OFFSET + 8}px`,
           background:
             "linear-gradient(180deg, oklch(0.97 0.015 80) 0%, oklch(0.93 0.03 78) 100%)",
         }}
@@ -503,7 +586,7 @@ function Index() {
                 className="font-display text-4xl md:text-6xl font-bold mb-4"
                 style={{ color: "oklch(0.96 0.05 88)" }}
               >
-                Bảng sử dụng <span className="shimmer-text italic">AI</span>
+                Bảng sử dụng <span className="shimmer-text not-italic inline-flex align-middle leading-[1.12] pt-[0.08em] pb-[0.1em] overflow-visible">AI</span>
               </h2>
               <p
                 className="italic max-w-2xl mx-auto mt-4"
@@ -565,6 +648,23 @@ function Index() {
           © Bài thuyết trình học thuật · Lịch sử Đảng Cộng sản Việt Nam
         </p>
       </footer>
+
+      <button
+        type="button"
+        onClick={scrollToTop}
+        aria-label="Cuộn lên đầu trang"
+        className="fixed right-5 md:right-8 bottom-5 md:bottom-8 z-50 rounded-sm px-4 py-3 font-display text-sm tracking-[0.15em] uppercase transition-all duration-300"
+        style={{
+          background: "var(--gradient-gold)",
+          color: "var(--ink)",
+          boxShadow: "var(--shadow-gold)",
+          opacity: scrollY > 280 ? 1 : 0,
+          transform: `translateY(${scrollY > 280 ? 0 : 18}px)`,
+          pointerEvents: scrollY > 280 ? "auto" : "none",
+        }}
+      >
+        ↑ Lên đầu
+      </button>
     </main>
   );
 }
@@ -591,8 +691,11 @@ function Section({
       className="relative py-24 md:py-32 perspective-scene"
       style={
         dark
-          ? { background: "linear-gradient(180deg, oklch(0.20 0.04 28) 0%, oklch(0.14 0.04 28) 100%)" }
-          : undefined
+          ? {
+            background: "linear-gradient(180deg, oklch(0.20 0.04 28) 0%, oklch(0.14 0.04 28) 100%)",
+            scrollMarginTop: `${HEADER_SCROLL_OFFSET + 8}px`,
+          }
+          : { scrollMarginTop: `${HEADER_SCROLL_OFFSET + 8}px` }
       }
     >
       <div className="max-w-6xl mx-auto px-6">
