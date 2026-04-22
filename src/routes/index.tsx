@@ -497,125 +497,54 @@ function Index() {
                 className="text-xs tracking-[0.4em] uppercase mb-4"
                 style={{ color: "var(--gold-soft)" }}
               >
-                Phụ lục · Cam kết
+                Phụ lục · Minh bạch AI
               </div>
               <h2
                 className="font-display text-4xl md:text-6xl font-bold mb-4"
                 style={{ color: "oklch(0.96 0.05 88)" }}
               >
-                Liêm chính <span className="shimmer-text italic">Học thuật</span>
+                Bảng sử dụng <span className="shimmer-text italic">AI</span>
               </h2>
               <p
                 className="italic max-w-2xl mx-auto mt-4"
                 style={{ color: "oklch(0.88 0.04 85)" }}
               >
-                Cam kết về việc sử dụng AI có trách nhiệm trong bài thuyết trình này.
+                Thông tin minh bạch về các công cụ AI đã sử dụng trong quá trình làm dự án.
               </p>
               <div className="divider-ornament mt-6">✦</div>
             </div>
           </Reveal>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {INTEGRITY_PRINCIPLES.map((p, i) => (
-              <Reveal key={p.code} delay={i * 120}>
-                <TiltCard className="parchment p-7 md:p-8 h-full rounded-sm vintage-frame">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div
-                      className="shrink-0 w-14 h-14 rounded-sm flex items-center justify-center font-display font-black text-lg"
-                      style={{
-                        background: "var(--gradient-gold)",
-                        color: "var(--ink)",
-                        boxShadow: "var(--shadow-gold)",
-                      }}
-                    >
-                      {p.code}
-                    </div>
-                    <div>
-                      <div className="text-[var(--crimson)] text-xs tracking-[0.3em] uppercase mb-1">
-                        Nguyên tắc
-                      </div>
-                      <h3 className="font-display text-2xl font-bold text-[var(--ink)]">
-                        {p.title}
-                      </h3>
-                    </div>
-                  </div>
-                  <div className="text-[var(--muted-foreground)] leading-relaxed text-base">
-                    {p.body}
-                  </div>
-                </TiltCard>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={200}>
+            <TiltCard
+              className="rounded-sm overflow-hidden border"
+              style={{
+                borderColor: "oklch(0.95 0.06 88 / 0.25)",
+                background:
+                  "linear-gradient(135deg, oklch(0.16 0.03 250 / 0.62), oklch(0.12 0.04 250 / 0.72))",
+                backdropFilter: "blur(8px)",
+              }}
+            >
 
-          {/* 4.4 — Three signals card (full width, highlighted) */}
-          <Reveal delay={500}>
-            <TiltCard className="mt-8 parchment p-8 md:p-12 rounded-sm vintage-frame">
-              <div className="flex flex-col md:flex-row md:items-start gap-6 mb-6">
+
+              <div className="grid grid-cols-[1.2fr_1.8fr] px-6 md:px-8 py-4 text-sm md:text-base font-semibold border-b" style={{ borderColor: "oklch(0.95 0.06 88 / 0.2)", color: "oklch(0.94 0.03 88)" }}>
+                <div>Công cụ AI</div>
+                <div>Mục đích sử dụng</div>
+              </div>
+
+              {AI_USAGE_TOOLS.map((tool, index) => (
                 <div
-                  className="shrink-0 w-16 h-16 rounded-sm flex items-center justify-center font-display font-black text-xl"
+                  key={tool.name}
+                  className="grid grid-cols-[1.2fr_1.8fr] px-6 md:px-8 py-5 md:py-6 items-center"
                   style={{
-                    background: "var(--gradient-flag)",
-                    color: "oklch(0.96 0.05 88)",
-                    boxShadow: "var(--shadow-gold)",
+                    borderTop: index === 0 ? "none" : "1px solid oklch(0.95 0.06 88 / 0.18)",
+                    color: "oklch(0.93 0.03 88)",
                   }}
                 >
-                  4.4
+                  <div className="font-display text-xl md:text-2xl font-bold">{tool.name}</div>
+                  <div className="text-base md:text-lg leading-relaxed">{tool.purpose}</div>
                 </div>
-                <div>
-                  <div className="text-[var(--crimson)] text-xs tracking-[0.3em] uppercase mb-1">
-                    Cốt lõi
-                  </div>
-                  <h3 className="font-display text-2xl md:text-3xl font-bold text-[var(--ink)] mb-2">
-                    Liêm chính học thuật
-                  </h3>
-                  <p className="text-[var(--muted-foreground)] italic">
-                    Đánh giá cụ thể qua 3 dấu hiệu sau:
-                  </p>
-                </div>
-              </div>
-
-              <ul className="space-y-4">
-                {INTEGRITY_SIGNALS.map((s, i) => (
-                  <li
-                    key={i}
-                    className="flex gap-4 items-start p-4 rounded-sm"
-                    style={{ background: "oklch(0.96 0.02 82 / 0.6)" }}
-                  >
-                    <span
-                      className="shrink-0 w-9 h-9 rounded-full flex items-center justify-center font-display font-bold text-sm"
-                      style={{
-                        background: "var(--gradient-gold)",
-                        color: "var(--ink)",
-                      }}
-                    >
-                      {i + 1}
-                    </span>
-                    <span className="leading-relaxed pt-1 text-[var(--ink)]">{s}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-10 pt-8 border-t-2 border-dashed border-[var(--gold)] flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-[var(--muted-foreground)] mb-2">
-                    Ký xác nhận
-                  </p>
-                  <p
-                    className="font-display italic text-3xl text-[var(--crimson)]"
-                    style={{ fontFamily: '"Playfair Display", cursive' }}
-                  >
-                    Nhóm 2
-                  </p>
-                </div>
-                <div className="text-right">
-                  <p className="text-xs uppercase tracking-widest text-[var(--muted-foreground)]">
-                    Học phần
-                  </p>
-                  <p className="font-display font-bold text-[var(--ink)]">
-                    Lịch sử Đảng Cộng sản Việt Nam
-                  </p>
-                </div>
-              </div>
+              ))}
             </TiltCard>
           </Reveal>
         </div>
@@ -733,11 +662,10 @@ function TimelineNode({
         </div>
 
         <div
-          className={`pl-28 md:pl-0 ${
-            side === "right"
-              ? "md:col-start-2 md:row-start-1 md:pl-16"
-              : "md:col-start-1 md:row-start-1 md:pr-16"
-          }`}
+          className={`pl-28 md:pl-0 ${side === "right"
+            ? "md:col-start-2 md:row-start-1 md:pl-16"
+            : "md:col-start-1 md:row-start-1 md:pr-16"
+            }`}
         >
           <TiltCard className="parchment p-7 md:p-8 rounded-sm h-full">
             <h3 className="font-display text-xl md:text-2xl font-bold text-[var(--ink)] mb-3">
@@ -748,11 +676,10 @@ function TimelineNode({
         </div>
 
         <div
-          className={`pl-28 md:pl-0 ${
-            side === "right"
-              ? "md:col-start-1 md:row-start-1 md:pr-16"
-              : "md:col-start-2 md:row-start-1 md:pl-16"
-          }`}
+          className={`pl-28 md:pl-0 ${side === "right"
+            ? "md:col-start-1 md:row-start-1 md:pr-16"
+            : "md:col-start-2 md:row-start-1 md:pl-16"
+            }`}
         >
           <TiltCard className="parchment rounded-sm overflow-hidden h-full">
             {imageSrc ? (
@@ -788,53 +715,13 @@ function Row({ label, color, text }: { label: string; color: string; text: strin
   );
 }
 
-const INTEGRITY_PRINCIPLES: { code: string; title: string; body: React.ReactNode }[] = [
+const AI_USAGE_TOOLS = [
   {
-    code: "4.1",
-    title: "Minh bạch",
-    body: (
-      <>
-        Có slide / phụ lục <strong>"AI Usage"</strong> liệt kê công cụ, mục đích, prompt chính,
-        kết quả nhận được và phần nhóm đã chỉnh sửa. <strong>Chia sẻ link đoạn chat</strong> đã sử
-        dụng để giảng viên có thể đối chiếu.
-      </>
-    ),
+    name: "Gemini",
+    purpose: "Phân tích giáo trình, tóm tắt dữ liệu.",
   },
   {
-    code: "4.2",
-    title: "Có trách nhiệm",
-    body: (
-      <>
-        <strong>Kiểm chứng</strong> mọi thông tin do AI sinh ra bằng giáo trình LLCT, nghị quyết
-        và các văn bản chính thống. Nhóm <strong>chịu trách nhiệm</strong> hoàn toàn về nội dung
-        cuối cùng được trình bày.
-      </>
-    ),
+    name: "Lovable + Copilot",
+    purpose: "Thiết kế và làm giao diện web.",
   },
-  {
-    code: "4.3",
-    title: "Sáng tạo",
-    body: (
-      <>
-        AI chỉ đóng vai trò <strong>hỗ trợ</strong> (tạo sơ đồ, quiz, video, chatbot…),{" "}
-        <strong>không thay thế toàn bộ</strong> quá trình tư duy, biên soạn và sáng tạo của nhóm.
-      </>
-    ),
-  },
-  {
-    code: "★",
-    title: "Tinh thần chung",
-    body: (
-      <>
-        Sử dụng AI như một <em>công cụ học tập</em> — để khai mở tư duy, không phải để né tránh nỗ
-        lực. Mỗi sản phẩm cuối cùng đều phải mang dấu ấn lao động trí tuệ thực sự của sinh viên.
-      </>
-    ),
-  },
-];
-
-const INTEGRITY_SIGNALS = [
-  "Có cam kết bằng văn bản (slide / phụ lục) khẳng định không để AI làm thay hoàn toàn.",
-  "Có phân định rõ phần AI output và phần sinh viên chỉnh sửa / biên soạn.",
-  "Có đối chiếu nguồn chính thống cho mọi thông tin do AI sinh ra.",
 ];
