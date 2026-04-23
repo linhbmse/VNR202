@@ -40,8 +40,8 @@ const NAV_TABS = [
   { id: "liem-chinh", label: "Phụ lục AI" },
 ];
 
-const HEADER_SCROLL_OFFSET = 88;
-const ACTIVE_TAB_SCROLL_OFFSET = 180;
+const HEADER_SCROLL_OFFSET = -20;
+const ACTIVE_TAB_SCROLL_OFFSET = 90;
 
 function Index() {
   const heroRef = useRef<HTMLDivElement>(null);
