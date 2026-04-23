@@ -40,7 +40,7 @@ const NAV_TABS = [
   { id: "liem-chinh", label: "Phụ lục AI" },
 ];
 
-const HEADER_SCROLL_OFFSET = 0;
+const HEADER_SCROLL_OFFSET = 88;
 const ACTIVE_TAB_SCROLL_OFFSET = 180;
 
 function Index() {
@@ -95,7 +95,7 @@ function Index() {
   };
 
   return (
-    <main className="min-h-screen overflow-x-hidden pt-20 md:pt-24">
+    <main className="min-h-screen overflow-x-hidden">
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b" style={{ background: "oklch(0.15 0.04 28 / 0.72)", borderColor: "oklch(0.95 0.06 88 / 0.22)" }}>
         <nav className="max-w-6xl mx-auto w-full px-4 md:px-6 py-3 flex justify-center gap-2 md:gap-3 overflow-x-auto">
           {NAV_TABS.map((tab) => {
@@ -105,7 +105,7 @@ function Index() {
                 key={tab.id}
                 type="button"
                 onClick={() => scrollToSection(tab.id)}
-                className="px-4 py-2 rounded-sm text-xs md:text-sm font-semibold tracking-[0.12em] uppercase whitespace-nowrap transition-all duration-300"
+                className="nav-pill px-4 py-2 rounded-sm text-xs md:text-sm font-semibold tracking-[0.12em] uppercase whitespace-nowrap transition-all duration-300"
                 style={{
                   background: isActive ? "var(--gradient-gold)" : "oklch(0.2 0.04 28 / 0.35)",
                   color: isActive ? "var(--ink)" : "oklch(0.92 0.04 85)",
@@ -159,7 +159,7 @@ function Index() {
           </p>
 
           <h1
-            className="font-display text-5xl sm:text-7xl md:text-8xl font-black leading-[1.05] mb-8"
+            className="hero-title font-display text-5xl sm:text-7xl md:text-8xl font-black leading-[1.05] mb-8"
             style={{
               color: "oklch(0.96 0.05 88)",
               textShadow: "0 4px 40px oklch(0.2 0.1 25 / 0.6), 0 0 80px oklch(0.85 0.15 86 / 0.3)",
@@ -185,7 +185,7 @@ function Index() {
                 e.preventDefault();
                 scrollToSection("mo-dau");
               }}
-              className="px-8 py-4 rounded-sm font-display text-base tracking-wider uppercase transition-all duration-500 hover:translate-y-[-3px]"
+              className="cta-glow px-8 py-4 rounded-sm font-display text-base tracking-wider uppercase transition-all duration-500 hover:translate-y-[-3px]"
               style={{
                 background: "var(--gradient-gold)",
                 color: "var(--ink)",
@@ -196,13 +196,6 @@ function Index() {
             </a>
           </div>
         </div>
-
-        <div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[var(--gold-soft)] text-xs tracking-[0.3em] uppercase"
-          style={{ opacity: Math.max(0, 1 - scrollY / 300) }}
-        >
-          ↓ Cuộn xuống
-        </div>
       </section>
 
       {/* ============ PHẦN 1: ĐẶT VẤN ĐỀ ============ */}
@@ -210,19 +203,19 @@ function Index() {
         <div className="grid md:grid-cols-2 gap-8">
           <Reveal>
             <TiltCard className="parchment p-8 md:p-10 h-full rounded-sm">
-              <div className="text-[var(--crimson)] text-xs tracking-[0.3em] uppercase mb-3">
+              <div className="text-crimson text-xs tracking-[0.3em] uppercase mb-3">
                 01 · Thực trạng
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-[var(--ink)]">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-ink">
                 Thời đại của "Tốc độ" và "Thành tích"
               </h3>
-              <p className="text-[var(--muted-foreground)] leading-relaxed text-base mb-4">
+              <p className="text-muted-foreground leading-relaxed text-base mb-4">
                 Trong học tập, công việc và phát triển cá nhân hiện nay, con người thường có xu
-                hướng ưu tiên <em className="text-[var(--crimson)] not-italic font-semibold">tốc độ</em>{" "}
-                và <em className="text-[var(--crimson)] not-italic font-semibold">thành tích</em>{" "}
+                hướng ưu tiên <em className="text-crimson not-italic font-semibold">tốc độ</em>{" "}
+                và <em className="text-crimson not-italic font-semibold">thành tích</em>{" "}
                 nhằm đạt kết quả nhanh nhất.
               </p>
-              <div className="mt-6 pt-6 border-t border-[var(--border)] space-y-2 text-sm text-[var(--muted-foreground)]">
+              <div className="mt-6 pt-6 border-t border-border space-y-2 text-sm text-muted-foreground">
                 <p>⚠ Mất cân bằng giữa <strong>chất lượng</strong> và <strong>số lượng</strong>.</p>
                 <p>⚠ Gia tăng <strong>áp lực</strong> và <strong>rủi ro</strong>.</p>
                 <p>⚠ Vấn đề về <strong>đạo đức, môi trường</strong> và tính bền vững.</p>
@@ -232,7 +225,7 @@ function Index() {
 
           <Reveal delay={150}>
             <TiltCard className="p-8 md:p-10 h-full rounded-sm" style={{ background: "var(--gradient-flag)" }}>
-              <div className="text-[var(--gold-soft)] text-xs tracking-[0.3em] uppercase mb-3">
+              <div className="text-gold-soft text-xs tracking-[0.3em] uppercase mb-3">
                 02 · Câu hỏi chiến lược
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: "oklch(0.96 0.05 88)" }}>
@@ -261,7 +254,7 @@ function Index() {
         <Reveal delay={300}>
           <div className="mt-16 text-center max-w-3xl mx-auto">
             <div className="divider-ornament mb-6">✦</div>
-            <p className="font-display italic text-xl md:text-2xl text-[var(--crimson)]">
+            <p className="font-display italic text-xl md:text-2xl text-crimson">
               "Thực tiễn phát triển của Việt Nam — đặc biệt từ Đại hội X đến Đại hội XIII — đã cung
               cấp những bài học sâu sắc về mối quan hệ giữa tăng trưởng nhanh và phát triển bền vững."
             </p>
@@ -282,14 +275,33 @@ function Index() {
         <div className="max-w-6xl mx-auto px-6">
           <Reveal>
             <div className="text-center mb-20">
-              <div className="text-[var(--crimson)] text-xs tracking-[0.4em] uppercase mb-4">
+              <div className="text-crimson text-xs tracking-[0.4em] uppercase mb-4">
                 Phần II · Cơ sở lý thuyết
               </div>
-              <h2 className="font-display text-4xl md:text-6xl font-bold text-[var(--ink)] mb-4">
-                Bài học lịch sử <span className="text-[var(--crimson)]">Đại hội X — XIII</span>
+              <h2 className="font-display text-4xl md:text-6xl font-bold text-ink mb-4">
+                Bài học lịch sử <span className="text-crimson">Đại hội X — XIII</span>
               </h2>
               <div className="divider-ornament mt-6">★</div>
             </div>
+          </Reveal>
+
+          <Reveal delay={150}>
+            <TiltCard className="parchment p-8 md:p-10 rounded-sm mb-16 border-l-4" style={{ borderLeftColor: "var(--crimson)" }}>
+              <div className="text-crimson text-xs tracking-[0.3em] uppercase mb-4 font-semibold">
+                📍 Bối cảnh lịch sử
+              </div>
+              <h3 className="font-display text-2xl md:text-3xl font-bold text-ink mb-4">
+                Đại hội đại biểu toàn quốc lần thứ X
+              </h3>
+              <p className="text-sm md:text-base text-muted-foreground mb-3 italic">
+                Tháng 4 năm 2006 – Dấu ấn 20 năm Đổi mới
+              </p>
+              <div className="pt-4 border-t border-border">
+                <p className="text-muted-foreground leading-relaxed text-base">
+                  <span className="text-crimson font-semibold">"</span>Nâng cao năng lực lãnh đạo và sức chiến đấu của Đảng, phát huy sức mạnh toàn dân tộc, đẩy mạnh toàn diện công cuộc đổi mới, sớm đưa nước ta ra khỏi tình trạng kém phát triển.<span className="text-crimson font-semibold">"</span>
+                </p>
+              </div>
+            </TiltCard>
           </Reveal>
 
           <div className="relative preserve-3d">
@@ -321,20 +333,20 @@ function Index() {
               year="2008"
               side="right"
               title="Mặt trái lộ diện — Khủng hoảng tài chính toàn cầu"
-              imageSrc="https://statics.tititada.com/News/20240810/nhin-lai-cuoc-khung-hoang-tai-chinh-2007-2008.png"
+              imageSrc="https://fhsc.com.vn/wp-content/uploads/2025/04/Khung-hoang-tai-chinh-nam-2008-768x432.jpg"
               imageAlt="Hình minh họa khủng hoảng tài chính 2008"
               body={
                 <ul className="space-y-2 text-sm md:text-base">
                   <li>
-                    <strong className="text-[var(--crimson)]">Kinh tế:</strong> tăng trưởng theo
+                    <strong className="text-crimson">Kinh tế:</strong> tăng trưởng theo
                     chiều rộng, năng suất thấp, phụ thuộc vốn và tài nguyên.
                   </li>
                   <li>
-                    <strong className="text-[var(--crimson)]">Xã hội:</strong> khoảng cách giàu
+                    <strong className="text-crimson">Xã hội:</strong> khoảng cách giàu
                     nghèo gia tăng, áp lực việc làm và an sinh.
                   </li>
                   <li>
-                    <strong className="text-[var(--crimson)]">Môi trường & quản lý:</strong> ô
+                    <strong className="text-crimson">Môi trường & quản lý:</strong> ô
                     nhiễm, khai thác quá mức; tham nhũng, lãng phí.
                   </li>
                 </ul>
@@ -351,44 +363,13 @@ function Index() {
               body={
                 <>
                   Cương lĩnh 2011 khẳng định nguyên tắc:{" "}
-                  <em className="text-[var(--crimson)] not-italic font-semibold">
+                  <em className="text-crimson not-italic font-semibold">
                     "Phát triển nhanh gắn liền với phát triển bền vững"
                   </em>
                   . Đổi mới mô hình tăng trưởng — chuyển từ <strong>chiều rộng</strong> sang{" "}
                   <strong>chiều sâu</strong>, dựa trên khoa học – công nghệ và đổi mới sáng tạo.
                 </>
               }
-            />
-
-            <TimelineNode
-              year="XII"
-              side="right"
-              title="Hài hoà các mối quan hệ lớn"
-              imageSrc="https://lh3.googleusercontent.com/proxy/pUXnegwFSzbNpw88S_QIVruqNLtj7DuhQI0xzS_Rm1CL-WNjhFx6dn1O--TRot4w3BCxZyen8MsTHmwgypOcnDm9xiK4bocNnXUwMM3GiCMSf907tXFIg0GgThgzKd-zrWbj1hU"
-              imageAlt="Hình minh họa các mối quan hệ lớn"
-              body={
-                <ul className="space-y-2 text-sm md:text-base">
-                  <li>⚖ <strong>Kinh tế</strong> — <strong>xã hội</strong> — <strong>môi trường</strong></li>
-                  <li>⚖ <strong>Tăng trưởng</strong> — <strong>công bằng</strong></li>
-                  <li>⚖ <strong>Độc lập</strong> — <strong>hội nhập</strong></li>
-                </ul>
-              }
-            />
-
-            <TimelineNode
-              year="XIII"
-              side="left"
-              title="Tầm nhìn 2045 — Kinh tế số & Nhân lực chất lượng cao"
-              imageSrc="https://s-aicmscdn.vietnamhoinhap.vn/vnhn-media/23/4/15/amhc.jpg"
-              imageAlt="Hình minh họa tầm nhìn 2045"
-              body={
-                <>
-                  Đại hội XIII nhấn mạnh phát triển <strong>kinh tế số</strong>, nâng cao chất
-                  lượng <strong>nguồn nhân lực</strong> để tạo đà phát triển bền vững đến năm
-                  2045 — khát vọng đưa Việt Nam trở thành nước phát triển, thu nhập cao.
-                </>
-              }
-              accent
             />
           </div>
         </div>
@@ -752,7 +733,7 @@ function TimelineNode({
       <div className="relative mb-16 md:mb-20 grid md:grid-cols-2 gap-8 items-start">
         <div className="absolute left-8 md:left-1/2 md:-translate-x-1/2 -translate-y-1/2 top-1/2 z-10">
           <div
-            className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center font-display font-black text-sm md:text-base shadow-lg"
+            className="timeline-year w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center font-display font-black text-sm md:text-base shadow-lg"
             style={{
               background: accent ? "var(--gradient-gold)" : "var(--gradient-flag)",
               color: accent ? "var(--ink)" : "oklch(0.95 0.05 88)",
@@ -789,7 +770,7 @@ function TimelineNode({
               <img
                 src={imageSrc}
                 alt={imageAlt || `Hình minh họa cho mốc ${year}`}
-                className="w-full h-full object-cover min-h-52"
+                className="timeline-image w-full h-full object-cover min-h-52"
                 loading="lazy"
               />
             ) : (
