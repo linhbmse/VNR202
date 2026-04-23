@@ -279,7 +279,7 @@ function Index() {
                 Phần II · Cơ sở lý thuyết
               </div>
               <h2 className="font-display text-4xl md:text-6xl font-bold text-ink mb-4">
-                Bài học lịch sử <span className="text-crimson">Đại hội X — XI</span>
+                Bài học lịch sử <span className="text-crimson">Đại hội X — XIII</span>
               </h2>
               <div className="divider-ornament mt-6">★</div>
             </div>
@@ -394,8 +394,8 @@ function Index() {
             {
               icon: "💼",
               title: "Trong công việc",
-              fast: "Cày KPI, ôm nhiều dự án cùng lúc để mau thăng tiến.",
-              slow: "Ưu tiên chiều sâu chuyên môn, cân bằng cuộc sống.",
+              fast: "Chạy grab, công việc tự do không cần bằng cấp vì thu nhập cao.",
+              slow: "Chấp nhận một vị trí thực tập với mức lương thấp, đúng chuyên môn.",
               warn: "Bỏ qua chất lượng — sai sót và kiệt sức (burnout).",
             },
             {
