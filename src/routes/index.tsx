@@ -279,7 +279,7 @@ function Index() {
                 Phần II · Cơ sở lý thuyết
               </div>
               <h2 className="font-display text-4xl md:text-6xl font-bold text-ink mb-4">
-                Bài học lịch sử <span className="text-crimson">Đại hội X — XIII</span>
+                Bài học lịch sử <span className="text-crimson">Đại hội X — XI</span>
               </h2>
               <div className="divider-ornament mt-6">★</div>
             </div>
