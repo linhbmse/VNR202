@@ -13,7 +13,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Dung hoà giữa tăng trưởng và xử lý mặt trái — Bài học từ Đại hội X đến Đại hội XIII của Đảng Cộng sản Việt Nam, vận dụng vào cá nhân và tổ chức.",
+          "Dung hoà giữa tăng trưởng và xử lý mặt trái — Bài học từ Đại hội X đến Đại hội XI của Đảng Cộng sản Việt Nam, vận dụng vào cá nhân và tổ chức.",
       },
       { property: "og:title", content: "Phát triển nhanh nhưng bền vững" },
       {
@@ -155,7 +155,7 @@ function Index() {
           </div>
 
           <p className="text-[var(--gold-soft)] tracking-[0.4em] text-xs sm:text-sm mb-6 uppercase">
-            Lịch sử Đảng Cộng sản Việt Nam · Đại hội X — XIII
+            Lịch sử Đảng Cộng sản Việt Nam · Đại hội X — XI
           </p>
 
           <h1
@@ -255,7 +255,7 @@ function Index() {
           <div className="mt-16 text-center max-w-3xl mx-auto">
             <div className="divider-ornament mb-6">✦</div>
             <p className="font-display italic text-xl md:text-2xl text-crimson">
-              "Thực tiễn phát triển của Việt Nam — đặc biệt từ Đại hội X đến Đại hội XIII — đã cung
+              "Thực tiễn phát triển của Việt Nam — đặc biệt từ Đại hội X đến Đại hội XI — đã cung
               cấp những bài học sâu sắc về mối quan hệ giữa tăng trưởng nhanh và phát triển bền vững."
             </p>
           </div>
